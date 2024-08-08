@@ -1,8 +1,9 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
+  max-width:468px;
 }
 
 .logo {
@@ -36,7 +37,68 @@
 .card {
   padding: 2em;
 }
+.page1{
+  position: absolute;
+  height: 100vh;
+  top: 0
+}
+.page1 img{
+  width:468px;
+  height:100%;
+}
+.page2{
+  position: absolute;
+  height: 100vh;
+  top: 0
+}
+.page2 img{
+  width:468px;
+  height:100%;
+}
+.page3{
+  position: absolute;
+  height: 100vh;
+  top: 0
+}
+.page3 img{
+  width:468px;
+  height:100%;
+}
+
+.btn_next{
+  position: absolute;
+  bottom: 104px;
+  right:40px;
+}
 
 .read-the-docs {
   color: #888;
+}
+.logo-circle {
+  position: relative;
+  width: 100px; /* Adjust based on your layout */
+  height: 100px; /* Adjust based on your layout */
+  border-radius: 50%;
+  overflow: hidden;
+  background: white; /* Ensure visibility if needed */
+}
+
+@media (max-width:467px){
+  .root{
+    width:100%;
+  }
+  .page1 img{
+    width:100%;
+  }
+  .page2 img{
+    width:100%;
+  }
+  .page3 img{
+    width:100%;
+  }
+  .btn_next {
+    position: absolute;
+    bottom: 84px;
+    right: 22px;
+  }
 }

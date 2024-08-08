@@ -6,7 +6,7 @@ import BOX_IMAGE from "../images/blank_box.png"
 import axios from "axios";
 
 export default function Description() {
-  const {uploadedPhoto, setUploadedPhoto,setImgUrl } = useContext(AppContext);
+  const { uploadedPhoto, setUploadedPhoto, setImgUrl } = useContext(AppContext);
   const [openModal, setOpenModal] = useState({ show: false });
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ export default function Description() {
     let formData = new FormData();
     const blob = await fetch(imageSrc).then((res) => res.blob());
 
-    formData.append("upload_file", blob,"something.png");
+    formData.append("upload_file", blob, "something.png");
 
     const headers = {
       HTTP_SECRETKEY: "ae9e762a",
@@ -31,20 +31,19 @@ export default function Description() {
         }
       );
 
-      if (resp.data.status == 200) {
+      if (resp.data.status === 200) {
         setImgUrl(resp?.data?.filename)
         return;
       }
     } catch (error) {
-        console.log(error, "error")  
+      console.log(error, "error")
     }
   };
 
-
-  const handlePhotoUpload = async(photo) => {
+  const handlePhotoUpload = async (photo) => {
     setUploadedPhoto(photo);
     setOpenModal({ show: false });
-    await uploadImage(uploadedPhoto);
+    await uploadImage(photo);
     navigate("/preview");
   };
 
