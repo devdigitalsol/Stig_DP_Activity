@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { AppContext } from "../context";
 import LOGO from "../images/logo.png";
 import BOX_IMAGE from "../images/Dp_back.png";
@@ -21,7 +21,7 @@ export default function Preview() {
         allowTaint: true,
         useCORS: true,
       })
-        .then((canvas) => {
+        .then(async (canvas) => {
           const myImage = canvas.toDataURL("image/jpeg", 0.8);
           const link = document.createElement("a");
           link.href = myImage;
@@ -30,6 +30,10 @@ export default function Preview() {
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
+
+          // Convert the image to Blob and upload
+          const blob = await (await fetch(myImage)).blob();
+          uploadImage(blob);
         })
         .catch((error) => {
           console.log(error);
@@ -38,10 +42,9 @@ export default function Preview() {
     }
   };
 
-  const uploadAndSavePDF = async (pdfBytes) => {
+  const uploadImage = async (imageBlob) => {
     let formData = new FormData();
-    const blob = new Blob([pdfBytes], { type: "application/pdf" });
-    formData.append("upload_file", blob, "diabetes_reformer.pdf");
+    formData.append("upload_file", imageBlob, "image.jpeg");
 
     const headers = {
       HTTP_SECRETKEY: "ae9e762a",
@@ -59,22 +62,23 @@ export default function Preview() {
       );
 
       if (resp.data.status === 200) {
-        const pdfUrl = resp.data.filename;
-        await updateImage(pdfUrl);
+        const imageUrl = resp.data.filename;
+        await updateImage(imageUrl);
       }
     } catch (error) {
       console.log(error, "error");
     }
   };
 
-  const updateImage = async (pdfUrl) => {
+  const updateImage = async (imageUrl) => {
     try {
       const resp = await axios.post("https://quitsugarmovement.in/api/operations.php", {
         operation: "update_photo_url",
         record_id: identifier,
-        photo_url: pdfUrl,
+        photo_url: imageUrl,
       });
       if (resp?.data?.status === 200) {
+        console.log("Image URL updated successfully");
       }
     } catch (error) {
       console.log(error);
