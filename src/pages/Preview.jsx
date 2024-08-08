@@ -3,7 +3,7 @@ import { AppContext } from "../context";
 import LOGO from "../images/logo.png";
 import BOX_IMAGE from "../images/Dp_back.png";
 import DOWNLOAD_IMAGE from "../images/Download_btn.png";
-import SHARE_IMAGE from "../images/share_btn.png";
+import BACK from "../images/back_btn.png"
 import "../utils/app.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -128,7 +128,7 @@ export default function Preview() {
             onClick={downloadImage}
           />
           <img
-            src={SHARE_IMAGE}
+            src={BACK}
             alt="Share"
             className="cursor-pointer"
             onClick={handleShare}

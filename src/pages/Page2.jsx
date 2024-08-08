@@ -10,21 +10,10 @@ export default function Page2(){
   };
 
     return(
-      // <div className="relative">
-      //   <img src={IMAGE2} alt="" className="w-full h-auto" />
-      //   <button
-      //     className="absolute bottom-20 right-5  md:bottom-24 md:right-8 lg:bottom-28 lg:right-10 bg-[#005ca6] text-white px-4 py-2 rounded"
-      //     onClick={handleNext}
-      //   >
-      //     Next
-      //   </button>
-      // </div>
-       // <div className="relative">
        <div className="page2">
        <img src={IMAGE2} alt="" className="w-full h-auto" />
        <button
-           className="btn_next bg-[#005ca6] text-white px-4 py-2 rounded"
-           // className="absolute bottom-20 right-5  md:bottom-24 md:right-8 lg:bottom-28 lg:right-10 bg-[#005ca6] text-white px-4 py-2 rounded"
+           className="btn_next bg-[#005ca6] text-white px-10 py-2 rounded"
            onClick={handleNext}
        >
          Next
