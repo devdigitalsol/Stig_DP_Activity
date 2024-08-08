@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { AppContext } from "../context";
-import LOGO from "../images/logo.png";
+import BOTTOMLOGO from "../images/bottom_img.png";
+import LOGO from "../images/logo.png"
 import BOX_IMAGE from "../images/Dp_back.png";
 import DOWNLOAD_IMAGE from "../images/Download_btn.png";
 import BACK from "../images/back_btn.png"
@@ -104,19 +105,22 @@ export default function Preview() {
         }}
       >
         <div
-          className="relative rounded-md px-4 py-8 flex flex-col items-center space-y-4 bg-white"
+          className="relative rounded-lg    flex flex-col items-center space-y-4 bg-white"
           id="downloadableContent"
           style={{ position: "relative", width: "100%", height: "auto" }}
         >
-          <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-[#7cc8f2] relative z-10">
+          <div className="relative w-48 h-48 ">
             {uploadedPhoto ? (
-              <img src={uploadedPhoto} alt="Uploaded" className="w-full h-full object-cover" />
+            <img src={uploadedPhoto} alt="Uploaded" className="w-full h-full object-cover rounded-lg" />
             ) : (
               <img src={PERSON} alt="Default Person" className="w-full h-full object-cover" />
             )}
           </div>
-          <div className="absolute bottom-[-2px] right-12 z-20">
-            <img src={LOGO} alt="Company Logo" className="w-31 h-31 object-cover" />
+          <div className="absolute w-full bottom-0 z-20">
+            <img src={BOTTOMLOGO} alt="Company Logo" className="w-31 h-31 object-cover" />
+          </div> 
+          <div className="absolute top-[-12px] left-0 z-20">
+            <img src={LOGO} alt="Company Logo" className="w-16 h-31 object-cover" />
           </div>
         </div>
 

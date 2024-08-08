@@ -48,7 +48,7 @@ export default function Description() {
   };
 
   return (
-    <div className="px-14 pt-8 ">
+    <div className="px-14 pt-8 h-[100%] ">
       <div
         className="relative  text-[#fff] text-lg rounded-md px-4 py-10 shadow-3xl overflow-hidden space-y-4"
         style={{
